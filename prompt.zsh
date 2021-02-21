@@ -5,7 +5,7 @@
 # echo "\ue0b0 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699 \ue0b1"
 
 
-# prompt参考（今は使ってない） 
+# prompt参考（今は使ってない）
 # https://qiita.com/mollifier/items/8d5a627d773758dd8078#
 
 setopt transient_rprompt  # 右側まで入力がきたらRPROMPTを消す

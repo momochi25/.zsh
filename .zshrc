@@ -1,21 +1,9 @@
-export prompt.zsh
+source ~/.zsh/prompt.zsh
 export LANG=ja_JP.UTF-8
 export PATH=$PATH:$HOME/bin
 
 # 色を使用出来るようにする
 autoload -Uz colors
-export LSCOLORS=gxfxcxdxbxegedabagacad
-
-# vcs_info 設定
-
-RPROMPT=""
-BRANCH="\ue0a0"
-
-autoload -Uz vcs_info
-autoload -Uz add-zsh-hook
-autoload -Uz is-at-least
-autoload -Uz colors
-
 
 # HISTORY
 HISTFILE=~/.zsh_history
