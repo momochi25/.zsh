@@ -2,8 +2,9 @@
 source ~/.zsh/prompt.zsh
 export LANG=ja_JP.UTF-8
 export PATH=$PATH:$HOME/bin
-# micro path
+# micro path 標準エディター
 export PATH=$HOME/local/bin:$PATH
+export EDITOR=micro
 
 # 色を使用出来るようにする
 autoload -Uz colors
