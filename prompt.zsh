@@ -96,11 +96,11 @@ get_git_info() {
         GIT_INFO[stash_count]=$(git stash list | wc -l | tr -d ' ')
 
         # remote
-        # GIT_INFO[remote]=${$(git rev-parse --verify ${GIT_INFO[repo_name]}@{upstream} --symbolic-full-name 2>/dev/null)/refs\/remotes\/}
-        # if [[ -n $GIT_INFO[remote] ]]; then
-        #   GIT_INFO[ahead_count]=$(git rev-list ${GIT_INFO[repo_name]}@{upstream}..HEAD 2>/dev/null | wc -l | tr -d ' ')
-        #   GIT_INFO[behind_count]=$(git rev-list HEAD..${GIT_INFO[repo_name]}@{upstream} 2>/dev/null | wc -l | tr -d ' ')
-        # fi
+        GIT_INFO[remote]=${$(git rev-parse --verify ${GIT_INFO[repo_name]}@{upstream} --symbolic-full-name 2>/dev/null)/refs\/remotes\/}
+        if [[ -n $GIT_INFO[remote] ]]; then
+          GIT_INFO[ahead_count]=$(git rev-list ${GIT_INFO[repo_name]}@{upstream}..HEAD 2>/dev/null | wc -l | tr -d ' ')
+          GIT_INFO[behind_count]=$(git rev-list HEAD..${GIT_INFO[repo_name]}@{upstream} 2>/dev/null | wc -l | tr -d ' ')
+        fi
 
         local branch_info remote_info
         local -a flags git_status
