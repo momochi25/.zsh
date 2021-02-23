@@ -183,7 +183,7 @@ prompt_context() {
 
 # Dir: current working directory
 prompt_dir() {
-    prompt_segment white black
+    prompt_segment blue white
 
     if [[ -n $GIT_INFO[repo_path] ]]; then
         local repo_top_path current_path sub_path

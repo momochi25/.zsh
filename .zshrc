@@ -1,5 +1,7 @@
 # promptの部分を別ファイルに
+
 source ~/.zsh/prompt.zsh
+
 export LANG=ja_JP.UTF-8
 export PATH=$PATH:$HOME/bin
 # micro path 標準エディター
