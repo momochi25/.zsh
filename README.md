@@ -17,3 +17,5 @@ git clone --recursive git@github.com:momochi25/dot.zsh.git ~/.zsh
 ```zshenv
 export ZDOTDIR=$HOME/.zsh
 ```
+
+uu
