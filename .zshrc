@@ -1,6 +1,9 @@
+# promptの部分を別ファイルに
 source ~/.zsh/prompt.zsh
 export LANG=ja_JP.UTF-8
 export PATH=$PATH:$HOME/bin
+# micro path
+export PATH=$HOME/local/bin:$PATH
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -112,15 +115,15 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias mk='touch'
 
-#cdのあとlsを自動化する
-cdl(){
-    if [ $# -ne 2 ]; then # $#は引数の個数，-ne演算子は!=
-        cd $1
-        ls
-    else
-        cd $2
-    fi
+#cdを打ったら自動的にlsを打ってくれる関数
+function cd(){
+	builtin cd $@ && ls;
 }
+
+# windowsWSL用alias
+alias cdh='cd /mnt/c/Users/yusuk'
+alias progwin='cd /mnt/c/Users/yusuk/Documents/prog'
+
 
 #aliasの覚書メモ呼び出し
 alias aliasmemo='cat /Users/yusuke/Documents/aliasmemo.txt'
@@ -129,13 +132,7 @@ alias openaliasmemo='atom /Users/yusuke/Documents/aliasmemo.txt'
 #zsh再ログイン
 alias relogin='exec $SHELL -l'
 #zshrcオープン
-alias zshrc='micro ~/.zshrc'
-
-#cd のエイリアス
-alias cd='cdl'
-alias cdn='cdl a' #aは引数の数を２つにするためムリヤリ
-alias pytest='cd /Users/yusuke/Google_drive/prog/python_test'
-alias heni='cd /Users/yusuke/Google_drive/prog/Henigensei_master'
+alias zshrc='micro ~/.zsh/.zshrc'
 
 alias mkdir='mkdir -p'
 
@@ -165,3 +162,5 @@ alias ./a="./a.out"
 alias fanza="python3 /Users/yusuke/Google_drive/prog/python_test/py_scraping/fanzascraping.py"
 #アンマウント
 alias unmount_all='sh /Users/yusuke/Documents/sh_automation/unmount.sh'
+
+alias ip4='ip -json a | jq ".[] | {ifname: .ifname, address:.address, addr_info: .addr_info[] | select(.family == \"inet\") | {local:.local}}"'
